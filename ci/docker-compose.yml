@@ -1,0 +1,15 @@
+version: '2'
+services:
+  sawtooth-dev-ubuntu-trusty:
+    build:
+      context: .
+      dockerfile: sawtooth-docker
+    image: "sawtooth-dev-ubuntu-trusty:${BUILD_NUMBER}"
+    ports:
+     - "5500:5500"
+     - "8800:8800"
+  sawtooth-java-intkey:
+    build:
+      context: /var/lib/jenkins/workspace/test/core/sawtooth/cli/data/
+      dockerfile: sawtooth-java-intkey-1.0
+    image: "sawtooth-java-intkey:${BUILD_NUMBER}"
